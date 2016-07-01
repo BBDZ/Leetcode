@@ -2,8 +2,11 @@
 coding practice
 
 1	Two Sum	24.5%		Easy
+
 2	Add Two Numbers	23.9%		Medium
+
 3	Longest Substring Without Repeating Characters	22.5%		Medium
+
 4	Median of Two Sorted Arrays	19.1%		Hard
 5	Longest Palindromic Substring	23.5%		Medium
 6	ZigZag Conversion	24.5%		Easy
