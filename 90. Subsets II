@@ -1,0 +1,29 @@
+public class Solution {
+    public List<List<Integer>> subsetsWithDup(int[] nums) {
+        //HashMap<List<Integer>, Integer> visited = new HashMap<List<Integer>, Integer>(); 
+        List<List<Integer>> result = new ArrayList<List<Integer>>();
+        List<Integer> subset = new ArrayList<Integer>();
+        
+        if(nums == null || nums.length == 0) {
+            return result;
+        }
+        Arrays.sort(nums);
+        helper(result, subset, nums, 0);
+        return result;
+    }
+    
+    private void helper(List<List<Integer>> result, List<Integer> subset, int[] nums, int index) {
+        if(index == nums.length) {
+            result.add(new ArrayList<Integer>(subset));
+            return;
+        }
+        
+        subset.add(nums[index]);
+        helper(result, subset, nums, index + 1);
+        subset.remove(subset.size() - 1);
+        while(index < nums.length - 1 && nums[index] == nums[index + 1]) {
+            index++;
+        }
+        helper(result, subset, nums, index + 1);
+    }
+}
