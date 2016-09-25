@@ -11,34 +11,41 @@ class TreeNode {
 }
 
 public class maxAverage {
-	public int getmaxave(TreeNode root) {
+	public TreeNode getmaxave(TreeNode root) {
 		if(root == null) {
 			return 0;
 		}
 		TreeNode cur = root;
-		int[] globle_max = new int[] {Integer.MIN_VALUE};
+		double[] globle_max = new int[] {Integer.MIN_VALUE};
 		helper(root, cur, globle_max);
 		return cur;
 
 	}
 
-	private int helper(TreeNode root, TreeNode cur, int[] globle_max) {
+	private int[] helper(TreeNode root, TreeNode cur, double[] globle_max) {
+		int[] result = new int[2]{0,0};
+		
 		if(root == null) {
-			return 0;
+		  	return result;
 		}
 
-		int tmp = 0;
+		//int sum = 0;
+		//int child = 0;
+		
 		for(TreeNode node : children) {
-			tmp += helper(node,cur,globlemax);
+			int[] tmp = helper(node,cur,globlemax);
+			result[0] += tmp[0];
+			result[1] += tmp[1];
 		}
 
-		int count = children.size()；
-		if(tmp / (count + 1) > globlemax[0]) {
-			globlemax[0] = tmp / (count + 1;
+		result[0] += root.val;
+		result[1] ++;
+		if(sum / child > globlemax[0]) {
+			globlemax[0] = sum / child;
 			cur = root;
 		}
 
-		return root.val + tmp;
+		return result;
 	}
 
 
