@@ -18,7 +18,7 @@ public class maxAverage {
 		TreeNode cur = root;
 		int[] globle_max = new int[] {Integer.MIN_VALUE};
 		helper(root, cur, globle_max);
-
+		return cur;
 
 	}
 
